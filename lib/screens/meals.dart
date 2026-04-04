@@ -4,16 +4,16 @@ import 'package:meals/screens/meal_details.dart';
 import 'package:meals/widgets/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
-  const MealsScreen({required this.meals,required this.onToggleFavourite ,this.title, super.key});
+  const MealsScreen({required this.meals,/* required this.onToggleFavourite , */this.title, super.key});
 
   final String? title;   //We are making it optional because when MealsScreen is accessed through bottomNavigationBar, there are 2 Appbars.
   final List<Meal> meals;
-  final void Function(Meal meal) onToggleFavourite;
+  //final void Function(Meal meal) onToggleFavourite;   --> Changed to Provider
 
   void _selectMeal(BuildContext context, Meal selectedMeal) {//A context argument is necessary for Navigator.
     Navigator.of(context).push(/*route*/     //Alternative: Navigator.push(context, route);
       MaterialPageRoute(
-        builder: (ctx) => MealDetails(selectedMeal: selectedMeal,onToggleFavourite: onToggleFavourite,)
+        builder: (ctx) => MealDetails(selectedMeal: selectedMeal,/* onToggleFavourite: onToggleFavourite, */)
         ),
     );
   }

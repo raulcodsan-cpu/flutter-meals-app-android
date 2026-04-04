@@ -6,8 +6,8 @@ import 'package:meals/models/category.dart';
 import 'package:meals/models/meal.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({required this.onToggleFavourite,required this.availableMeals,super.key});
-  final void Function(Meal meal) onToggleFavourite;
+  const CategoriesScreen({/* required this.onToggleFavourite, */required this.availableMeals,super.key});
+  //final void Function(Meal meal) onToggleFavourite;  --> Changed to Provider
   final List<Meal> availableMeals;
 
   //Normally func. are for settings States in StatefulWigt, but we can use to set Navigator in Stateless as we are managing the Screen Stack not the Widget
@@ -21,7 +21,7 @@ class CategoriesScreen extends StatelessWidget {
           meals: 
               filteredMeals,
           title: category.title,
-          onToggleFavourite: onToggleFavourite,
+          //onToggleFavourite: onToggleFavourite,      --> Changed to provider
         ),
       ),
     );
